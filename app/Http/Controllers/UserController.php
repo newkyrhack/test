@@ -82,16 +82,16 @@ class UserController extends Controller
         $nombre = $request->header('nombre');
         $roll = $request->header('roll');
         if($nombre!='' && $roll!=''){
-            $users = User::where(['nombre'=>$nombre,'roll'=>$roll])->paginate(2);
+            $users = User::where(['nombre'=>$nombre,'roll'=>$roll])->paginate(10);
         }
         else if($nombre!=''){
-            $users = User::where('nombre',$nombre)->paginate(2);
+            $users = User::where('nombre',$nombre)->paginate(10);
         }
         else if($roll!=''){
-            $users = User::where('roll',$roll)->paginate(2);
+            $users = User::where('roll',$roll)->paginate(10);
         }
         else{
-            $users = User::paginate(2);
+            $users = User::paginate(10);
         }
         return $users;
     }

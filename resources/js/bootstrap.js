@@ -35,6 +35,7 @@ let webtoken = document.head.querySelector('meta[name="web-token"]');
 
 if (token) {
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+    window.axios.defaults.headers.common['web-token'] = webtoken.content;
    
 } else {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
